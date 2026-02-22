@@ -38,21 +38,17 @@ if (hamburger && navMenu) {
 
 /* ================= IMAGE SLIDER ================= */
 
-const images = ["Photos/garv1.png", "Photos/garv2.jpeg"];
-let index = 0;
-const mainImg = document.getElementById("mainImg");
+// Both images are already in the DOM — just swap CSS classes.
+// No src change = no extra HTTP requests, only the CSS opacity transition fires.
 
-if (mainImg) {
+const heroImgs = document.querySelectorAll(".hero-image .img");
+
+if (heroImgs.length === 2) {
   setInterval(() => {
-    index = (index + 1) % images.length;
-
-    mainImg.style.opacity = 0;
-
-    setTimeout(() => {
-      mainImg.src = images[index];
-      mainImg.style.opacity = 1;
-    }, 750);
-
+    heroImgs.forEach(img => {
+      img.classList.toggle("front");
+      img.classList.toggle("back");
+    });
   }, 10000);
 }
 
