@@ -102,7 +102,7 @@ if (form) {
 
     const formData = new FormData(form);
 
-    fetch("/", {
+    fetch("/home.html", {
       method: "POST",
       body: formData
     })
